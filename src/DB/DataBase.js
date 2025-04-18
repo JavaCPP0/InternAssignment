@@ -14,9 +14,6 @@ function initializeDatabase() {
     `);
     console.log('데이터베이스 초기화 완료');
   }
-  
-
-
 // INSERT 준비 (UserId는 생략해서 자동 증가되게 함)
 const insert = database.prepare(`
   INSERT INTO User (ID, PassWord, Addr, ClickCount, Disqualification)

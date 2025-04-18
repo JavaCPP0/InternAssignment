@@ -18,3 +18,9 @@
 - 우승자의 아이디,주소지,클릭횟수 출력
 - 외부 소스 사용 금지
 - DB는 내장 SQLite
+
+## DB
+
+### User
+- int UserId(PK), int ID, string PassWord, string ADD, int ClickCount, int Disqualification
+

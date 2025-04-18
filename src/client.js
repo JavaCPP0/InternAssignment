@@ -7,7 +7,6 @@ const client = net.createConnection({ port: 5000 }, () => {
 
 client.on('data', (data) => {
   console.log('서버로부터 응답:', data.toString());
-  client.end(); // 한 번만 보내고 종료
 });
 
 client.on('end', () => {
