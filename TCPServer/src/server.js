@@ -1,6 +1,7 @@
-const net = require('net');
-const { TCPPORT, HOST } = require('./constants/env');
-const { default: onConnection } = require('./Events/onConnection');
+// TCPServer/src/server.js
+import net from 'net';
+import { TCPPORT, HOST } from './constants/env.js';
+import onConnection from '../src/Events/onConnection.js';
 
 // TCP 서버 생성 및 실행
 function server() {
