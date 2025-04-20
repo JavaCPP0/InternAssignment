@@ -27,7 +27,6 @@ const httpClientRequest = (data, requestType) => {
                     id: data.id, // 회원가입 시 사용한 ID
                     password: data.password, // 회원가입 시 사용한 비밀번호
                 };
-                httpClientRequest(loginData, 'LOGIN_REQUEST'); // 로그인 요청
             }
         });
     });
@@ -56,7 +55,7 @@ const signupData1 = {
 const signupData2 = {
     id: 'playerId2',
     password: 'password123',
-    addr: 'seoul',
+    addr: 'busan',
 };
 
 httpClientRequest(signupData1, 'REGISTER_REQUEST'); // 회원가입 요청

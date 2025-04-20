@@ -8,7 +8,8 @@ class ClickGame {
 
   // 로그인된 유저 확인
   isUserLoggedIn(playerId) {
-    return this.players[playerId] && !this.players[playerId].isDisqualified;
+    console.log(`game에 플레이어가 있을까요? ${this.players}`);
+    return this.players[playerId];
   }
 
   // 유저 로그인 처리
@@ -20,6 +21,7 @@ class ClickGame {
     } else {
       console.log(`플레이어 ${playerId}는 이미 로그인 상태입니다.`);
     }
+    return this.players[playerId];
   }
 
   // 우승자 결정 및 정보 출력
