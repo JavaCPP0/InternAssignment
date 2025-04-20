@@ -47,10 +47,17 @@ const httpClientRequest = (data, requestType) => {
 };
 
 // 회원가입 요청 예시
-const signupData = {
-    id: 'user123',
+const signupData1 = {
+    id: 'playerId1',
     password: 'password123',
     addr: 'seoul',
 };
 
-httpClientRequest(signupData, 'REGISTER_REQUEST'); // 회원가입 요청
+const signupData2 = {
+    id: 'playerId2',
+    password: 'password123',
+    addr: 'seoul',
+};
+
+httpClientRequest(signupData1, 'REGISTER_REQUEST'); // 회원가입 요청
+httpClientRequest(signupData2, 'REGISTER_REQUEST'); // 회원가입 요청

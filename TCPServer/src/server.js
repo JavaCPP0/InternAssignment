@@ -1,7 +1,6 @@
-// TCPServer/src/server.js
 import net from 'net';
 import { TCPPORT, HOST } from './constants/env.js';
-import onConnection from '../src/Events/onConnection.js';
+import onConnection from '../src/events/onConnection.js';
 
 // TCP 서버 생성 및 실행
 function server() {
