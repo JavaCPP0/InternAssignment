@@ -1,5 +1,4 @@
 import { clickLimit, clickWindow, gameDuration } from "../constants/game.js";
-import ClickGame from "../classes/game.js";
 import getGame from '../instance/gameInstance.js';
 
 const game = getGame();
@@ -11,9 +10,6 @@ const click = (request, socket) => {
   const { playerId} = request.data; // 요청에서 데이터 추출
   
   if (!game.isUserLoggedIn(playerId)) {
-    
-    console.log(`isUserLoggedIn는 제대로 작동하나요? ${game.isUserLoggedIn(playerId)}`);
-
     socket.write("서버 응답: 플레이어가 로그인되어 있지 않습니다.");
     return;
   }

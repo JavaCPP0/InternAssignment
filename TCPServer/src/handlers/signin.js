@@ -8,7 +8,6 @@ const signin = (request, socket) => {
     const { id, password } = request.data; // 요청에서 데이터 추출
 
     const game = getGame();
-    console.log(`signin에 게임이 있을까요? ${game}`);
 
     // ID와 비밀번호 확인
     const query = database.prepare('SELECT * FROM User WHERE ID = ? AND PassWord = ?');

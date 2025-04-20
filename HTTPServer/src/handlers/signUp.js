@@ -28,23 +28,3 @@ const signup = (request, res) => {
 };
 
 export { signup };
-
-
-// // 유저의 자격요건 확인하기
-// const checkStatus = database.prepare('SELECT Disqualification FROM User WHERE ID = ?');
-
-// const userIdToCheck = 12345;
-// const Disqualification = checkStatus.get(userIdToCheck);
-
-// console.log(result);  // { Disqualification: 0 } 또는 { Disqualification: 1 }
-
-// // SELECT 준비 및 실행
-// const query = database.prepare('SELECT * FROM User ORDER BY UserId');
-// console.log(query.all());
-
-// const result = query.all();
-
-// result.forEach(row => {
-//     console.log(row.ID);
-// });
-
