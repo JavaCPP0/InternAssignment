@@ -6,7 +6,6 @@ import getGame from '../instance/gameInstance.js';
 const signin = (request, socket) => {
     console.log("로그인 핸들러 호출됨");
     const { id, password } = request.data; // 요청에서 데이터 추출
-    console.log(`signin ID:${id}`);
 
     const game = getGame();
     console.log(`signin에 게임이 있을까요? ${game}`);
@@ -18,7 +17,7 @@ const signin = (request, socket) => {
     if (user) {
         // 로그인 성공
         const check = game.loginUser(id);
-        console.log(`로그인할때 등록이 잘 되었는가?${check}`);
+        console.log(`로그인할때 등록 체크${JSON.stringify(check)}`);
         socket.write(JSON.stringify({ message: '로그인 성공!', userId: user.UserId }));
 
     } else {

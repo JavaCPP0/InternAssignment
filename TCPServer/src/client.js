@@ -23,45 +23,49 @@ const game = getGame();
 const sendClickRequest = (playerId) => {
   const request = {
     type: 'CLICK_REQUEST',
-    playerId: playerId
+    data:{
+      playerId: playerId
+    }
+    
   };
   client.write(JSON.stringify(request));
 };
 
-const sendSigninRequest = (playerId,pw) => {
+const sendSigninRequest = (playerId, pw) => {
   const request = {
     type: 'LOGIN_REQUEST',
-    id: playerId,
-    password: pw
-
+    data: {
+      id: playerId,
+      password: pw
+    }
   };
   client.write(JSON.stringify(request));
 };
 
 sendSigninRequest(playerId1,'password123');
-sendSigninRequest(playerId2,'password123');
+setTimeout(() => sendSigninRequest(playerId2,'password123'), 100);
 // 클릭 처리
-sendClickRequest(playerId1); // 첫 클릭
-setTimeout(() => sendClickRequest(playerId1), 500); // 0.5초 후 클릭
-setTimeout(() => sendClickRequest(playerId1), 1500); // 1.5초 후 클릭
-setTimeout(() => sendClickRequest(playerId1), 2500); // 2.5초 후 클릭
-setTimeout(() => sendClickRequest(playerId1), 3500); // 3.5초 후 클릭
-setTimeout(() => sendClickRequest(playerId1), 4500); // 4.5초 후 클릭
+setTimeout(() => sendClickRequest(playerId1), 500);  // 첫 클릭
+setTimeout(() => sendClickRequest(playerId1), 8000); // 0.5초 후 클릭
+setTimeout(() => sendClickRequest(playerId1), 16000); // 1.5초 후 클릭
+setTimeout(() => sendClickRequest(playerId1), 24000); // 2.5초 후 클릭
+setTimeout(() => sendClickRequest(playerId1), 32000); // 3.5초 후 클릭
+setTimeout(() => sendClickRequest(playerId1), 40000); // 4.5초 후 클릭
+setTimeout(() => sendClickRequest(playerId1), 48000); // 4.5초 후 클릭
+setTimeout(() => sendClickRequest(playerId1), 56000); // 4.5초 후 클릭
 
-sendClickRequest(playerId2); // 첫 클릭
+setTimeout(() => sendClickRequest(playerId2), 500); // 첫 클릭
 setTimeout(() => sendClickRequest(playerId2), 500); // 0.5초 후 클릭
 setTimeout(() => sendClickRequest(playerId2), 1000); // 1초 후 클릭
 setTimeout(() => sendClickRequest(playerId2), 1500); // 1.5초 후 클릭
 setTimeout(() => sendClickRequest(playerId2), 2000); // 2초 후 클릭
 setTimeout(() => sendClickRequest(playerId2), 2500); // 2.5초 후 클릭
 setTimeout(() => sendClickRequest(playerId2), 3000); // 3초 후 클릭
-setTimeout(() => sendClickRequest(playerId2), 3500); // 3.5초 후 클릭
-setTimeout(() => sendClickRequest(playerId2), 4000); // 4초 후 클릭
-setTimeout(() => sendClickRequest(playerId2), 4500); // 4.5초 후 클릭
-setTimeout(() => sendClickRequest(playerId2), 5000); // 5초 후 클릭 (실격 처리)
+setTimeout(() => sendClickRequest(playerId2), 3600); // 3.6초 후 클릭
+setTimeout(() => sendClickRequest(playerId2), 3700); // 3.7초 후 클릭
+setTimeout(() => sendClickRequest(playerId2), 4300); // 4.3초 후 클릭
+setTimeout(() => sendClickRequest(playerId2), 4400); // 4.4초 후 클릭
+setTimeout(() => sendClickRequest(playerId2), 4500); // 4.5초 후 클릭 (실격 처리)
+setTimeout(() => sendClickRequest(playerId2), 4600); // 4.6초 후 클릭 (실격 처리후 클릭시도)
 
-// 게임 종료 후 우승자 결정
-setTimeout(() => {
-    const winners = game.determineWinners(); // 우승자 결정
-    console.log('우승자:', winners);
-}, 61000); // 1분 후 게임 종료
+

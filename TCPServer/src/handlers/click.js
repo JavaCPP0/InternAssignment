@@ -6,10 +6,12 @@ const game = getGame();
 
 const clickQueue = {}; // 플레이어별 클릭 시간을 저장할 큐
 
-const click = (playerId, socket) => {
+const click = (request, socket) => {
   // 플레이어가 로그인되어 있는지 확인
-  console.log(`click에 game이 잇을까요?${game}`);
+  const { playerId} = request.data; // 요청에서 데이터 추출
+  
   if (!game.isUserLoggedIn(playerId)) {
+    
     console.log(`isUserLoggedIn는 제대로 작동하나요? ${game.isUserLoggedIn(playerId)}`);
 
     socket.write("서버 응답: 플레이어가 로그인되어 있지 않습니다.");
@@ -20,15 +22,13 @@ const click = (playerId, socket) => {
   const player = game.players[playerId];
 
   // 10초 동안 클릭이 없으면 실격
-  if (player.lastClickTime && currentTime - player.lastClickTime > 10000) {
-    player.isDisqualified = true;
-    console.log(`플레이어 ${playerId}는 10초 동안 클릭이 없어 실격되었습니다.`);
-    socket.write("서버 응답: 10초 동안 클릭이 없어 실격되었습니다.");
-    return;
-  }
+
 
   // 클릭 수 증가
   player.incrementClick();
+
+  //실격 타이머
+  game.timer(playerId);
 
   // 클릭 시간 큐 관리
   if (!clickQueue[playerId]) {

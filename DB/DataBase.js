@@ -1,9 +1,10 @@
 'use strict';
 import { DatabaseSync } from 'node:sqlite';
-const database = new DatabaseSync(':memory:');
+export const database = new DatabaseSync('./database.sqlite');
+
 
 // User 테이블 생성 (UserId 자동 증가)
-const initializeDatabase = () => {
+export const initializeDatabase = () => {
     database.exec(`
       CREATE TABLE IF NOT EXISTS User (
         UserId INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -14,5 +15,3 @@ const initializeDatabase = () => {
     `);
     console.log('데이터베이스 초기화 완료');
 };
-
-export { database, initializeDatabase };

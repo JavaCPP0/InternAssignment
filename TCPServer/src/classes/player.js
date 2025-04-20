@@ -1,5 +1,6 @@
 class Player {
-    constructor() {
+    constructor(playerId) {
+        this.playerId = playerId;
         this.clickCount = 0;
         this.lastClickTime = null;
         this.startTime = Date.now();
