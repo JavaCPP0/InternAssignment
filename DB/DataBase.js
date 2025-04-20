@@ -11,7 +11,7 @@ const initializeDatabase = () => {
         ID TEXT NOT NULL,
         PassWord TEXT NOT NULL,
         Addr TEXT NOT NULL,
-        Disqualification INTEGER DEFAULT 0,
+        Disqualification INTEGER DEFAULT 0
       );
     `);
     console.log('데이터베이스 초기화 완료');
